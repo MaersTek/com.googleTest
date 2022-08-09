@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junit5Ver = "5.9.0"
+    selenideVer = "6.6.6"
+    restAssuredVer = "5.1.1"
+}
+
+dependencies {
+    implementation( "com.codeborne:selenide:$selenideVer")
+
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$junit5Ver",
+            "io.rest-assured:rest-assured:$restAssuredVer")
+
+}
+
+test {
+    useJUnitPlatform()
+}
